@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --primary-pink: #ff758c;
+    --secondary-pink: #ff7eb3;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --text-color: #ffffff;
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #000;
+    color: var(--text-color);
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.landing-container {
+    height: 100vh;
+    width: 100%;
+    background: url('../images/landing_bg.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 2;
+}
+
+#heartCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Allows clicks to pass through to the button */
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 3rem 5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 2s ease-out;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 117, 140, 0.8);
+    animation: glow 2s infinite alternate;
+}
+
+.btn-enter {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-enter:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px var(--primary-pink); }
+    to { text-shadow: 0 0 20px #fff, 0 0 40px var(--secondary-pink); }
+}
+
+/* Common utility classes */
+.page-transition {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Layout for other pages */
+.page-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(5px);
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+    display: none; /* Hidden for better flow */
+    gap: 20px;
+    z-index: 100;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-pink);
+}

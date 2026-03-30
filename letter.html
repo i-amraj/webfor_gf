@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Letter 💌 | Our Story</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .letter-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: var(--shadow);
+            margin-top: 4rem;
+        }
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--primary-pink);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        #letter-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #eee;
+            font-weight: 300;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--primary-pink);
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .btn-next {
+            margin-top: 3rem;
+            display: none; /* Shown after typing */
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+
+        <div class="letter-card">
+            <h2>My Dearest, ❤️</h2>
+            <div id="letter-text"></div><span class="cursor" id="cursor"></span>
+            
+            <div style="text-align: center;">
+                <a href="gallery.html" class="btn-enter btn-next" id="nextBtn">Continue to Memories 😉</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        const message = `From the moment I met you, my world changed in ways I never thought possible. You are the sunshine that brightens my darkest days and the calm in my storm. Every laugh we share, every memory we build, feels like a page from a beautiful fairy tale. \n\nI wanted to take a moment to remind you how much you mean to me. You aren't just my partner; you are my best friend and my home. As you click through this, I hope you feel even a fraction of the love I have for you. \n\nLet's walk down memory lane together...`;
+        
+        let i = 0;
+        const speed = 40;
+
+        function typeWriter() {
+            if (i < message.length) {
+                const char = message.charAt(i);
+                document.getElementById("letter-text").innerHTML += char === '\n' ? '<br>' : char;
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                document.getElementById("cursor").style.display = "none";
+                document.getElementById("nextBtn").style.display = "inline-block";
+                document.getElementById("nextBtn").classList.add('fadeIn');
+            }
+        }
+
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>

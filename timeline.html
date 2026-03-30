@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journey 🕰️ | Our Story</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-pink);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .left { left: 0; }
+        .right { left: 50%; }
+
+        .timeline-item::after {
+            content: '❤️';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: -17px;
+            background-color: #1a1a2e;
+            border: 2px solid var(--primary-pink);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+        .right::after { left: -17px; }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        .timeline-content h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--primary-pink);
+            margin-bottom: 10px;
+        }
+        .timeline-content span {
+            font-weight: 600;
+            color: #ffb6c1;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::after { left: 14px; }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+
+        <h1 style="font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-top: 2rem;">Our Sweet Journey 🕰️</h1>
+
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <span>JUNE 18</span>
+                    <h3>Our First Online Hello 📱</h3>
+                    <p>The day a simple "Hi" on screen changed everything. I didn't know then that this chat would become the most beautiful part of my life!</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <span>AUGUST</span>
+                    <h3>Finally Met... 🌹</h3>
+                    <p>That day in August when I first saw you for real. I still remember the clothes you wore—you looked absolutely breathtaking. My heart skipped a beat!</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <span>JANUARY 18</span>
+                    <h3>Your Special Day 🎂</h3>
+                    <p>Celebrating the most amazing person's birthday. You're the best gift life has ever given me, and I'm so lucky to be by your side.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <span>TODAY</span>
+                    <h3>One More Thing... ✨</h3>
+                    <p>Every day since we met has been a beautiful journey, but today is extra special because I have a question...</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; margin-bottom: 4rem;">
+            <a href="surprise.html" class="btn-enter" style="background: linear-gradient(45deg, #ff4d6d, #ff758c);">Wait, I have a Surprise... 🎁</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Scroll Reveal Logic
+        const items = document.querySelectorAll('.timeline-item');
+        
+        const revealItems = () => {
+            const triggerBottom = window.innerHeight * 0.8;
+            items.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < triggerBottom) {
+                    item.classList.add('show');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealItems);
+        window.onload = revealItems; // Check on load
+    </script>
+</body>
+</html>

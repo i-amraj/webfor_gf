@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Forever ❤️ | Our Story</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .final-hero {
+            text-align: center;
+            z-index: 10;
+        }
+        .heart-big {
+            font-size: 8rem;
+            animation: beat 1s infinite alternate;
+            filter: drop-shadow(0 0 20px #ff4d6d);
+        }
+        @keyframes beat {
+            to { transform: scale(1.2); }
+        }
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            margin-top: 1rem;
+            text-shadow: 0 0 10px #fff, 0 0 20px var(--primary-pink);
+        }
+        .final-msg {
+            max-width: 600px;
+            margin: 2rem auto;
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        #heart-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container" style="justify-content: center; position: relative;">
+        <div class="final-hero">
+            <div class="heart-big">❤️</div>
+            <h2>I Love You Forever!</h2>
+            <p class="final-msg">Every moment with you is a blessing. Thank you for being mine. This is just the beginning of our forever... ✨</p>
+            
+            <div style="margin-top: 3rem;">
+                <a href="index.html" class="btn-enter" style="position: relative; z-index: 100;">Back to Start</a>
+            </div>
+        </div>
+        <canvas id="heart-rain"></canvas>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        const canvas = document.getElementById('heart-rain');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const fallingHearts = [];
+
+        class FallingHeart {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = -20;
+                this.size = Math.random() * 20 + 10;
+                this.speed = Math.random() * 3 + 2;
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+
+            update() {
+                this.y += this.speed;
+                if (this.y > canvas.height) {
+                    this.y = -20;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 77, 109, ${this.opacity})`;
+                ctx.font = `${this.size}px Arial`;
+                ctx.fillText('❤️', this.x, this.y);
+            }
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 50; i++) {
+                fallingHearts.push(new FallingHeart());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            fallingHearts.forEach(heart => {
+                heart.update();
+                heart.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        createHearts();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
