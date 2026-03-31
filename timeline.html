@@ -1,150 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Journey 🕰️ | Our Story</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Keepsake | Our Journey</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;family=Be+Vietnam+Pro:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  "tertiary-container": "#cca730",
+                  "on-secondary-container": "#7b4c5e",
+                  "surface-container-highest": "#e9e2d3",
+                  "inverse-on-surface": "#f8f0e1",
+                  "on-tertiary-fixed": "#241a00",
+                  "on-background": "#1e1b13",
+                  "on-primary-fixed": "#410002",
+                  "surface-container-low": "#fbf3e4",
+                  "inverse-surface": "#343026",
+                  "surface-variant": "#e9e2d3",
+                  "surface-bright": "#fff8ef",
+                  "tertiary-fixed-dim": "#e9c349",
+                  "background": "#fff8ef",
+                  "secondary": "#805062",
+                  "tertiary": "#735c00",
+                  "surface-dim": "#e1d9cb",
+                  "on-primary-container": "#fff3f1",
+                  "surface-container": "#f5edde",
+                  "surface-tint": "#b91d1d",
+                  "surface": "#fff8ef",
+                  "on-primary-fixed-variant": "#93000b",
+                  "inverse-primary": "#ffb4ab",
+                  "error-container": "#ffdad6",
+                  "surface-container-lowest": "#ffffff",
+                  "on-surface": "#1e1b13",
+                  "on-tertiary": "#ffffff",
+                  "error": "#ba1a1a",
+                  "on-error": "#ffffff",
+                  "on-secondary": "#ffffff",
+                  "on-error-container": "#93000a",
+                  "on-tertiary-fixed-variant": "#574500",
+                  "on-secondary-fixed": "#330f1f",
+                  "secondary-container": "#fec1d6",
+                  "primary-fixed-dim": "#ffb4ab",
+                  "tertiary-fixed": "#ffe088",
+                  "outline": "#8e6f74",
+                  "on-surface-variant": "#5a4044",
+                  "primary-fixed": "#ffdad6",
+                  "on-secondary-fixed-variant": "#65394b",
+                  "primary-container": "#d3322c",
+                  "secondary-fixed-dim": "#f2b6cb",
+                  "primary": "#af1517",
+                  "on-primary": "#ffffff",
+                  "outline-variant": "#e3bdc3",
+                  "secondary-fixed": "#ffd9e4",
+                  "surface-container-high": "#efe7d9",
+                  "on-tertiary-container": "#4f3e00"
+                },
+                fontFamily: {
+                  "headline": ["Newsreader"],
+                  "body": ["Manrope"],
+                  "label": ["Be Vietnam Pro"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+              },
+            },
+          }
+        </script>
     <style>
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 4rem auto;
-            padding: 2rem 0;
-        }
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: var(--primary-pink);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-        }
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
-        }
-        .timeline-item.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .left { left: 0; }
-        .right { left: 50%; }
-
-        .timeline-item::after {
-            content: '❤️';
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            right: -17px;
-            background-color: #1a1a2e;
-            border: 2px solid var(--primary-pink);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.8rem;
-        }
-        .right::after { left: -17px; }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            position: relative;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-        .timeline-content h3 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--primary-pink);
-            margin-bottom: 10px;
-        }
-        .timeline-content span {
-            font-weight: 600;
-            color: #ffb6c1;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        @media screen and (max-width: 600px) {
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item::after { left: 14px; }
-            .right { left: 0%; }
-        }
-    </style>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .text-glow {
+                text-shadow: 0 0 15px rgba(175, 21, 23, 0.2);
+            }
+            .romantic-bg {
+                background: linear-gradient(135deg, #fff8ef 0%, #fec1d6 50%, #fff8ef 100%);
+                background-size: 400% 400%;
+            }
+            
+            /* Timeline Custom Styles */
+            .timeline-line::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent, #af1517 10%, #af1517 90%, transparent);
+            }
+        </style>
 </head>
-<body>
-    <div class="page-container">
+<body class="bg-surface font-body text-on-surface romantic-bg min-h-screen">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-[#fff8ef]/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-sm dark:shadow-none z-50 transition-all duration-300">
+        <div class="text-2xl font-serif text-[#af1517] dark:text-[#d3322c] drop-shadow-sm font-['Newsreader'] italic tracking-wide">
+            The Keepsake
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="index.html">Home</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="letter.html">Letter</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="gallery.html">Moments</a>
+            <a class="text-[#af1517] dark:text-[#d3322c] font-semibold border-b-2 border-[#735c00] pb-1 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] transition-all duration-300 font-['Newsreader'] italic tracking-wide" href="timeline.html">Timeline</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="surprise.html">Surprise</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button class="text-[#af1517] hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </button>
+        </div>
+    </header>
 
-        <h1 style="font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-top: 2rem;">Our Sweet Journey 🕰️</h1>
+    <main class="pt-24 pb-32 px-6 flex flex-col items-center min-h-screen">
+        <h1 class="font-headline text-5xl md:text-6xl italic text-primary leading-tight text-center mb-16 text-glow">
+            Our Sweet Journey 🕰️
+        </h1>
 
-        <div class="timeline">
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <span>JUNE 18</span>
-                    <h3>Our First Online Hello 📱</h3>
-                    <p>The day a simple "Hi" on screen changed everything. I didn't know then that this chat would become the most beautiful part of my life!</p>
+        <div class="relative w-full max-w-4xl timeline-line">
+            <!-- Timeline Item 1 -->
+            <div class="flex flex-col md:flex-row items-center mb-16 w-full">
+                <div class="md:w-1/2 flex justify-end md:pr-12 mb-4 md:mb-0">
+                    <div class="bg-surface-container-low p-6 rounded-2xl shadow-lg border border-outline-variant/20 max-w-sm transform hover:scale-105 transition-transform duration-300">
+                        <span class="text-secondary font-label text-sm uppercase tracking-widest mb-2 block">June 18</span>
+                        <h3 class="font-headline text-2xl italic text-primary mb-3">Our First Online Hello 📱</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            The day a simple "Hi" on screen changed everything. I didn't know then that this chat would become the most beautiful part of my life!
+                        </p>
+                    </div>
+                </div>
+                <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-primary rounded-full border-4 border-surface shadow-md z-10 hidden md:flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xs" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                </div>
+                <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="flex flex-col md:flex-row items-center mb-16 w-full">
+                <div class="md:w-1/2"></div>
+                <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-primary rounded-full border-4 border-surface shadow-md z-10 hidden md:flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xs" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                </div>
+                <div class="md:w-1/2 flex justify-start md:pl-12 mb-4 md:mb-0">
+                    <div class="bg-surface-container-low p-6 rounded-2xl shadow-lg border border-outline-variant/20 max-w-sm transform hover:scale-105 transition-transform duration-300">
+                        <span class="text-secondary font-label text-sm uppercase tracking-widest mb-2 block">August</span>
+                        <h3 class="font-headline text-2xl italic text-primary mb-3">Finally Met... 🌹</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            That day in August when I first saw you for real. I still remember the clothes you wore—you looked absolutely breathtaking. My heart skipped a beat!
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <span>AUGUST</span>
-                    <h3>Finally Met... 🌹</h3>
-                    <p>That day in August when I first saw you for real. I still remember the clothes you wore—you looked absolutely breathtaking. My heart skipped a beat!</p>
+
+            <!-- Timeline Item 3 -->
+            <div class="flex flex-col md:flex-row items-center mb-16 w-full">
+                <div class="md:w-1/2 flex justify-end md:pr-12 mb-4 md:mb-0">
+                    <div class="bg-surface-container-low p-6 rounded-2xl shadow-lg border border-outline-variant/20 max-w-sm transform hover:scale-105 transition-transform duration-300">
+                        <span class="text-secondary font-label text-sm uppercase tracking-widest mb-2 block">January 18</span>
+                        <h3 class="font-headline text-2xl italic text-primary mb-3">Your Special Day 🎂</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Celebrating the most amazing person's birthday. You're the best gift life has ever given me, and I'm so lucky to be by your side.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <span>JANUARY 18</span>
-                    <h3>Your Special Day 🎂</h3>
-                    <p>Celebrating the most amazing person's birthday. You're the best gift life has ever given me, and I'm so lucky to be by your side.</p>
+                <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-primary rounded-full border-4 border-surface shadow-md z-10 hidden md:flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xs" style="font-variation-settings: 'FILL' 1;">favorite</span>
                 </div>
+                <div class="md:w-1/2"></div>
             </div>
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <span>TODAY</span>
-                    <h3>One More Thing... ✨</h3>
-                    <p>Every day since we met has been a beautiful journey, but today is extra special because I have a question...</p>
+
+            <!-- Timeline Item 4 -->
+            <div class="flex flex-col md:flex-row items-center mb-16 w-full">
+                <div class="md:w-1/2"></div>
+                <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-primary rounded-full border-4 border-surface shadow-md z-10 hidden md:flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xs" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                </div>
+                <div class="md:w-1/2 flex justify-start md:pl-12 mb-4 md:mb-0">
+                    <div class="bg-surface-container-low p-6 rounded-2xl shadow-lg border border-outline-variant/20 max-w-sm transform hover:scale-105 transition-transform duration-300">
+                        <span class="text-secondary font-label text-sm uppercase tracking-widest mb-2 block">Today</span>
+                        <h3 class="font-headline text-2xl italic text-primary mb-3">One More Thing... ✨</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">
+                            Every day since we met has been a beautiful journey, but today is extra special because I have a question...
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div style="margin-top: 2rem; margin-bottom: 4rem;">
-            <a href="surprise.html" class="btn-enter" style="background: linear-gradient(45deg, #ff4d6d, #ff758c);">Wait, I have a Surprise... 🎁</a>
+        <div class="mt-8">
+            <a href="surprise.html" class="group relative px-12 py-5 bg-primary text-on-primary rounded-full font-label text-lg tracking-widest uppercase overflow-hidden transition-all hover:scale-110 hover:shadow-[0_0_30px_rgba(175,21,23,0.4)] active:scale-95 inline-block">
+                <span class="relative z-10 flex items-center gap-2">
+                    Wait, I have a Surprise... <span class="material-symbols-outlined text-sm" data-icon="redeem">redeem</span>
+                </span>
+                <div class="absolute inset-0 bg-primary-container translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            </a>
         </div>
-    </div>
+    </main>
 
-    <script src="js/script.js"></script>
-    <script>
-        // Scroll Reveal Logic
-        const items = document.querySelectorAll('.timeline-item');
-        
-        const revealItems = () => {
-            const triggerBottom = window.innerHeight * 0.8;
-            items.forEach(item => {
-                const itemTop = item.getBoundingClientRect().top;
-                if (itemTop < triggerBottom) {
-                    item.classList.add('show');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', revealItems);
-        window.onload = revealItems; // Check on load
-    </script>
+    <!-- BottomNavBar (Mobile) -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 md:hidden bg-[#fff8ef]/90 dark:bg-stone-900/90 backdrop-blur-md rounded-t-[2rem] shadow-[0_-10px_40px_rgba(30,27,19,0.06)]">
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="index.html">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="letter.html">
+            <span class="material-symbols-outlined" data-icon="mail">mail</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Letter</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="gallery.html">
+            <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Moments</span>
+        </a>
+        <a class="flex flex-col items-center justify-center bg-[#af1517] text-white rounded-full p-3 shadow-[0_0_15px_rgba(175,21,23,0.4)] transition-all duration-200" href="timeline.html">
+            <span class="material-symbols-outlined" data-icon="timeline">timeline</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Timeline</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="surprise.html">
+            <span class="material-symbols-outlined" data-icon="redeem">redeem</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Surprise</span>
+        </a>
+    </nav>
 </body>
 </html>

@@ -1,66 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Letter 💌 | Our Story</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Keepsake | A Special Letter</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;family=Be+Vietnam+Pro:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  "tertiary-container": "#cca730",
+                  "on-secondary-container": "#7b4c5e",
+                  "surface-container-highest": "#e9e2d3",
+                  "inverse-on-surface": "#f8f0e1",
+                  "on-tertiary-fixed": "#241a00",
+                  "on-background": "#1e1b13",
+                  "on-primary-fixed": "#410002",
+                  "surface-container-low": "#fbf3e4",
+                  "inverse-surface": "#343026",
+                  "surface-variant": "#e9e2d3",
+                  "surface-bright": "#fff8ef",
+                  "tertiary-fixed-dim": "#e9c349",
+                  "background": "#fff8ef",
+                  "secondary": "#805062",
+                  "tertiary": "#735c00",
+                  "surface-dim": "#e1d9cb",
+                  "on-primary-container": "#fff3f1",
+                  "surface-container": "#f5edde",
+                  "surface-tint": "#b91d1d",
+                  "surface": "#fff8ef",
+                  "on-primary-fixed-variant": "#93000b",
+                  "inverse-primary": "#ffb4ab",
+                  "error-container": "#ffdad6",
+                  "surface-container-lowest": "#ffffff",
+                  "on-surface": "#1e1b13",
+                  "on-tertiary": "#ffffff",
+                  "error": "#ba1a1a",
+                  "on-error": "#ffffff",
+                  "on-secondary": "#ffffff",
+                  "on-error-container": "#93000a",
+                  "on-tertiary-fixed-variant": "#574500",
+                  "on-secondary-fixed": "#330f1f",
+                  "secondary-container": "#fec1d6",
+                  "primary-fixed-dim": "#ffb4ab",
+                  "tertiary-fixed": "#ffe088",
+                  "outline": "#8e6f74",
+                  "on-surface-variant": "#5a4044",
+                  "primary-fixed": "#ffdad6",
+                  "on-secondary-fixed-variant": "#65394b",
+                  "primary-container": "#d3322c",
+                  "secondary-fixed-dim": "#f2b6cb",
+                  "primary": "#af1517",
+                  "on-primary": "#ffffff",
+                  "outline-variant": "#e3bdc3",
+                  "secondary-fixed": "#ffd9e4",
+                  "surface-container-high": "#efe7d9",
+                  "on-tertiary-container": "#4f3e00"
+                },
+                fontFamily: {
+                  "headline": ["Newsreader"],
+                  "body": ["Manrope"],
+                  "label": ["Be Vietnam Pro"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+              },
+            },
+          }
+        </script>
     <style>
-        .letter-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            padding: 3rem;
-            border-radius: 20px;
-            max-width: 800px;
-            width: 90%;
-            box-shadow: var(--shadow);
-            margin-top: 4rem;
-        }
-        h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: var(--primary-pink);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        #letter-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #eee;
-            font-weight: 300;
-        }
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background: var(--primary-pink);
-            margin-left: 5px;
-            animation: blink 0.7s infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        .btn-next {
-            margin-top: 3rem;
-            display: none; /* Shown after typing */
-        }
-    </style>
-</head>
-<body>
-    <div class="page-container">
-
-        <div class="letter-card">
-            <h2>My Dearest, ❤️</h2>
-            <div id="letter-text"></div><span class="cursor" id="cursor"></span>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .text-glow {
+                text-shadow: 0 0 15px rgba(175, 21, 23, 0.2);
+            }
+            .romantic-bg {
+                background: linear-gradient(135deg, #fff8ef 0%, #fec1d6 50%, #fff8ef 100%);
+                background-size: 400% 400%;
+            }
+            .letter-border {
+                border: 0.5px solid rgba(115, 92, 0, 0.2);
+                position: relative;
+            }
+            .letter-border::before, .letter-border::after {
+                content: '✿';
+                position: absolute;
+                color: #735c00;
+                font-size: 1.2rem;
+                opacity: 0.4;
+            }
+            .letter-border::before { top: 10px; left: 10px; }
+            .letter-border::after { bottom: 10px; right: 10px; }
             
-            <div style="text-align: center;">
-                <a href="gallery.html" class="btn-enter btn-next" id="nextBtn">Continue to Memories 😉</a>
+            .cursor {
+                display: inline-block;
+                width: 2px;
+                height: 1.2em;
+                background-color: #af1517;
+                margin-left: 2px;
+                animation: blink 0.7s infinite;
+                vertical-align: middle;
+            }
+            @keyframes blink { 50% { opacity: 0; } }
+        </style>
+</head>
+<body class="bg-surface font-body text-on-surface romantic-bg min-h-screen">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-[#fff8ef]/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-sm dark:shadow-none z-50 transition-all duration-300">
+        <div class="text-2xl font-serif text-[#af1517] dark:text-[#d3322c] drop-shadow-sm font-['Newsreader'] italic tracking-wide">
+            The Keepsake
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="index.html">Home</a>
+            <a class="text-[#af1517] dark:text-[#d3322c] font-semibold border-b-2 border-[#735c00] pb-1 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] transition-all duration-300 font-['Newsreader'] italic tracking-wide" href="letter.html">Letter</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="gallery.html">Moments</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="timeline.html">Timeline</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="surprise.html">Surprise</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button class="text-[#af1517] hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-32 px-6 flex flex-col items-center justify-center min-h-screen">
+        <div class="max-w-3xl w-full bg-surface-container-lowest/60 backdrop-blur-md rounded-xl p-12 md:p-20 shadow-xl letter-border border-0.5 border-outline-variant/20 flex flex-col items-center text-center space-y-8 relative z-10">
+            <div class="bg-secondary-fixed rounded-full p-4 mb-4">
+                <span class="material-symbols-outlined text-primary text-4xl" data-icon="mail">mail</span>
+            </div>
+            
+            <h1 class="font-headline text-4xl md:text-5xl italic text-primary leading-tight">My Dearest, ❤️</h1>
+            
+            <div id="letter-text" class="font-body text-lg md:text-xl text-on-surface-variant leading-relaxed text-left min-h-[200px]"></div><span class="cursor" id="cursor"></span>
+            
+            <div id="next-container" class="opacity-0 transition-opacity duration-1000">
+                <a href="gallery.html" class="group relative px-12 py-5 bg-primary text-on-primary rounded-full font-label text-lg tracking-widest uppercase overflow-hidden transition-all hover:scale-110 hover:shadow-[0_0_30px_rgba(175,21,23,0.4)] active:scale-95 inline-block">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Continue to Memories <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                    </span>
+                    <div class="absolute inset-0 bg-primary-container translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                </a>
             </div>
         </div>
-    </div>
+    </main>
 
-    <script src="js/script.js"></script>
+    <!-- BottomNavBar (Mobile) -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 md:hidden bg-[#fff8ef]/90 dark:bg-stone-900/90 backdrop-blur-md rounded-t-[2rem] shadow-[0_-10px_40px_rgba(30,27,19,0.06)]">
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="index.html">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center bg-[#af1517] text-white rounded-full p-3 shadow-[0_0_15px_rgba(175,21,23,0.4)] transition-all duration-200" href="letter.html">
+            <span class="material-symbols-outlined" data-icon="mail">mail</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Letter</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="gallery.html">
+            <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Moments</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="timeline.html">
+            <span class="material-symbols-outlined" data-icon="timeline">timeline</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Timeline</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="surprise.html">
+            <span class="material-symbols-outlined" data-icon="redeem">redeem</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Surprise</span>
+        </a>
+    </nav>
+
+    <!-- Scripts -->
     <script>
         const message = `From the moment I met you, my world changed in ways I never thought possible. You are the sunshine that brightens my darkest days and the calm in my storm. Every laugh we share, every memory we build, feels like a page from a beautiful fairy tale. \n\nI wanted to take a moment to remind you how much you mean to me. You aren't just my partner; you are my best friend and my home. As you click through this, I hope you feel even a fraction of the love I have for you. \n\nLet's walk down memory lane together...`;
         
@@ -75,8 +189,8 @@
                 setTimeout(typeWriter, speed);
             } else {
                 document.getElementById("cursor").style.display = "none";
-                document.getElementById("nextBtn").style.display = "inline-block";
-                document.getElementById("nextBtn").classList.add('fadeIn');
+                const nextContainer = document.getElementById("next-container");
+                nextContainer.classList.remove('opacity-0');
             }
         }
 

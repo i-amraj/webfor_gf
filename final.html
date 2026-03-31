@@ -1,62 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love You Forever ❤️ | Our Story</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Keepsake | Forever</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;family=Be+Vietnam+Pro:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  "tertiary-container": "#cca730",
+                  "on-secondary-container": "#7b4c5e",
+                  "surface-container-highest": "#e9e2d3",
+                  "inverse-on-surface": "#f8f0e1",
+                  "on-tertiary-fixed": "#241a00",
+                  "on-background": "#1e1b13",
+                  "on-primary-fixed": "#410002",
+                  "surface-container-low": "#fbf3e4",
+                  "inverse-surface": "#343026",
+                  "surface-variant": "#e9e2d3",
+                  "surface-bright": "#fff8ef",
+                  "tertiary-fixed-dim": "#e9c349",
+                  "background": "#fff8ef",
+                  "secondary": "#805062",
+                  "tertiary": "#735c00",
+                  "surface-dim": "#e1d9cb",
+                  "on-primary-container": "#fff3f1",
+                  "surface-container": "#f5edde",
+                  "surface-tint": "#b91d1d",
+                  "surface": "#fff8ef",
+                  "on-primary-fixed-variant": "#93000b",
+                  "inverse-primary": "#ffb4ab",
+                  "error-container": "#ffdad6",
+                  "surface-container-lowest": "#ffffff",
+                  "on-surface": "#1e1b13",
+                  "on-tertiary": "#ffffff",
+                  "error": "#ba1a1a",
+                  "on-error": "#ffffff",
+                  "on-secondary": "#ffffff",
+                  "on-error-container": "#93000a",
+                  "on-tertiary-fixed-variant": "#574500",
+                  "on-secondary-fixed": "#330f1f",
+                  "secondary-container": "#fec1d6",
+                  "primary-fixed-dim": "#ffb4ab",
+                  "tertiary-fixed": "#ffe088",
+                  "outline": "#8e6f74",
+                  "on-surface-variant": "#5a4044",
+                  "primary-fixed": "#ffdad6",
+                  "on-secondary-fixed-variant": "#65394b",
+                  "primary-container": "#d3322c",
+                  "secondary-fixed-dim": "#f2b6cb",
+                  "primary": "#af1517",
+                  "on-primary": "#ffffff",
+                  "outline-variant": "#e3bdc3",
+                  "secondary-fixed": "#ffd9e4",
+                  "surface-container-high": "#efe7d9",
+                  "on-tertiary-container": "#4f3e00"
+                },
+                fontFamily: {
+                  "headline": ["Newsreader"],
+                  "body": ["Manrope"],
+                  "label": ["Be Vietnam Pro"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+              },
+            },
+          }
+        </script>
     <style>
-        .final-hero {
-            text-align: center;
-            z-index: 10;
-        }
-        .heart-big {
-            font-size: 8rem;
-            animation: beat 1s infinite alternate;
-            filter: drop-shadow(0 0 20px #ff4d6d);
-        }
-        @keyframes beat {
-            to { transform: scale(1.2); }
-        }
-        h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 5rem;
-            margin-top: 1rem;
-            text-shadow: 0 0 10px #fff, 0 0 20px var(--primary-pink);
-        }
-        .final-msg {
-            max-width: 600px;
-            margin: 2rem auto;
-            font-size: 1.5rem;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-        #heart-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-    </style>
-</head>
-<body>
-    <div class="page-container" style="justify-content: center; position: relative;">
-        <div class="final-hero">
-            <div class="heart-big">❤️</div>
-            <h2>I Love You Forever!</h2>
-            <p class="final-msg">Every moment with you is a blessing. Thank you for being mine. This is just the beginning of our forever... ✨</p>
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .text-glow {
+                text-shadow: 0 0 15px rgba(175, 21, 23, 0.2);
+            }
+            .romantic-bg {
+                background: linear-gradient(135deg, #fff8ef 0%, #fec1d6 50%, #fff8ef 100%);
+                background-size: 400% 400%;
+            }
             
-            <div style="margin-top: 3rem;">
-                <a href="index.html" class="btn-enter" style="position: relative; z-index: 100;">Back to Start</a>
-            </div>
-        </div>
-        <canvas id="heart-rain"></canvas>
+            .heart-big {
+                font-size: 8rem;
+                animation: beat 1s infinite alternate;
+                filter: drop-shadow(0 0 20px #ff4d6d);
+            }
+            @keyframes beat {
+                to { transform: scale(1.2); }
+            }
+            
+            #heart-rain {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 1;
+            }
+        </style>
+</head>
+<body class="bg-surface font-body text-on-surface romantic-bg min-h-screen flex items-center justify-center p-6 text-center">
+    
+    <canvas id="heart-rain"></canvas>
+
+    <div class="relative z-10 max-w-2xl">
+        <div class="heart-big mb-8">❤️</div>
+        <h1 class="font-headline text-5xl md:text-7xl italic text-primary leading-tight text-glow mb-6">
+            I Love You Forever!
+        </h1>
+        <p class="font-body text-xl md:text-2xl text-secondary italic max-w-lg mx-auto leading-relaxed mb-12">
+            Every moment with you is a blessing. Thank you for being mine. This is just the beginning of our forever... ✨
+        </p>
+        
+        <a href="index.html" class="group relative px-12 py-5 bg-primary text-on-primary rounded-full font-label text-lg tracking-widest uppercase overflow-hidden transition-all hover:scale-110 hover:shadow-[0_0_30px_rgba(175,21,23,0.4)] active:scale-95 inline-block">
+            <span class="relative z-10 flex items-center gap-2">
+                Back to Start <span class="material-symbols-outlined text-sm" data-icon="home">home</span>
+            </span>
+            <div class="absolute inset-0 bg-primary-container translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+        </a>
     </div>
 
-    <script src="js/script.js"></script>
     <script>
         const canvas = document.getElementById('heart-rain');
         const ctx = canvas.getContext('2d');

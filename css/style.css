@@ -26,7 +26,7 @@ body {
 .landing-container {
     height: 100vh;
     width: 100%;
-    background: url('../images/landing_bg.png') no-repeat center center/cover;
+    background: #000; /* Let Three.js handle the bg */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,96 +34,73 @@ body {
     overflow: hidden;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
-    z-index: 2;
-}
-
-#heartCanvas {
+#three-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    pointer-events: none; /* Allows clicks to pass through to the button */
 }
 
 .content {
     position: relative;
     z-index: 10;
     text-align: center;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
     padding: 3rem 5rem;
     border-radius: 20px;
     box-shadow: var(--shadow);
-    animation: fadeIn 2s ease-out;
+    opacity: 0; /* Let GSAP reveal it */
 }
 
-h1 {
+h1.glow-text {
     font-family: 'Dancing Script', cursive;
-    font-size: 5rem;
+    font-size: 5.5rem;
     margin-bottom: 1.5rem;
     color: #fff;
-    text-shadow: 0 0 20px rgba(255, 117, 140, 0.8);
-    animation: glow 2s infinite alternate;
+    text-shadow: 0 0 20px rgba(255, 117, 140, 0.8), 0 0 40px rgba(255, 77, 109, 0.4);
 }
 
 .btn-enter {
-    padding: 1.2rem 3rem;
-    font-size: 1.2rem;
+    padding: 1.2rem 3.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #fff;
-    background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+    background: linear-gradient(45deg, #ff4d6d, #ff758c);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
     text-decoration: none;
     display: inline-block;
 }
 
 .btn-enter:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.6);
+    letter-spacing: 1px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px #fff, 0 0 20px var(--primary-pink); }
-    to { text-shadow: 0 0 20px #fff, 0 0 40px var(--secondary-pink); }
-}
-
-/* Common utility classes */
-.page-transition {
-    animation: fadeOut 1s forwards;
-}
-
-@keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
-}
-
-/* Layout for other pages */
+/* Page Transitions */
 .page-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0a 100%);
     padding: 4rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+}
+
+/* Animations */
+.gsap-reveal {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .navbar {

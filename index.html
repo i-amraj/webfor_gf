@@ -3,26 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You ❤️ | Our Story</title>
+    <title>The Keepsake | For You ❤️</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .font-headline { font-family: 'Newsreader', serif; }
+        .font-body { font-family: 'Manrope', sans-serif; }
+        
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
+        }
+        
+        .btn-premium {
+            padding: 1.2rem 3.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(45deg, #af1517, #d3322c);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(175, 21, 23, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .btn-premium:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(175, 21, 23, 0.6);
+        }
+    </style>
 </head>
-<body>
-    <div class="landing-container">
-        <div class="overlay"></div>
-        <canvas id="heartCanvas"></canvas>
-        <div class="content">
-            <h1>For You ❤️</h1>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; font-weight: 300;">Ready to relive our beautiful moments?</p>
-            <button class="btn-enter" onclick="enterSite()">Enter Our World</button>
+<body class="bg-black font-body text-white overflow-hidden">
+    <div class="landing-container h-screen w-full flex justify-center items-center relative">
+        <div id="three-container" class="absolute inset-0 z-0"></div>
+        
+        <div class="content relative z-10 text-center bg-black/40 backdrop-blur-xl border border-white/10 p-12 md:p-20 rounded-[2rem] shadow-2xl max-w-2xl mx-6">
+            <h1 class="font-headline text-6xl md:text-8xl italic text-white mb-6 glow-text">For You ❤️</h1>
+            <p class="text-white/70 text-lg md:text-xl font-light tracking-[0.2em] mb-12 uppercase">A journey through our beautiful story...</p>
+            <button class="btn-premium" onclick="enterSite()">Enter Our World</button>
         </div>
     </div>
 
     <!-- Background Music -->
     <audio id="bgMusic" loop>
         <source src="music/romantic.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
