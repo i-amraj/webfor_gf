@@ -103,11 +103,11 @@
             The Keepsake
         </div>
         <nav class="hidden md:flex items-center gap-8">
-            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="index.html">Home</a>
-            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="letter.html">Letter</a>
-            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="gallery.html">Moments</a>
-            <a class="text-[#af1517] dark:text-[#d3322c] font-semibold border-b-2 border-[#735c00] pb-1 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] transition-all duration-300 font-['Newsreader'] italic tracking-wide" href="timeline.html">Timeline</a>
-            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="surprise.html">Surprise</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="javascript:navigateTo('index.html')">Home</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="javascript:navigateTo('letter.html')">Letter</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="javascript:navigateTo('gallery.html')">Moments</a>
+            <a class="text-[#af1517] dark:text-[#d3322c] font-semibold border-b-2 border-[#735c00] pb-1 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] transition-all duration-300 font-['Newsreader'] italic tracking-wide" href="javascript:navigateTo('timeline.html')">Timeline</a>
+            <a class="text-[#805062] dark:text-stone-400 hover:text-[#af1517] transition-colors hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(175,21,23,0.3)] duration-300 font-['Newsreader'] italic tracking-wide" href="javascript:navigateTo('surprise.html')">Surprise</a>
         </nav>
         <div class="flex items-center gap-4">
             <button class="text-[#af1517] hover:scale-105 transition-transform">
@@ -192,7 +192,7 @@
         </div>
 
         <div class="mt-8">
-            <a href="surprise.html" class="group relative px-12 py-5 bg-primary text-on-primary rounded-full font-label text-lg tracking-widest uppercase overflow-hidden transition-all hover:scale-110 hover:shadow-[0_0_30px_rgba(175,21,23,0.4)] active:scale-95 inline-block">
+            <a href="javascript:navigateTo('surprise.html')" class="group relative px-12 py-5 bg-primary text-on-primary rounded-full font-label text-lg tracking-widest uppercase overflow-hidden transition-all hover:scale-110 hover:shadow-[0_0_30px_rgba(175,21,23,0.4)] active:scale-95 inline-block">
                 <span class="relative z-10 flex items-center gap-2">
                     Ruko! Ek Surprise hai... 🎁 <span class="material-symbols-outlined text-sm" data-icon="redeem">redeem</span>
                 </span>
@@ -203,26 +203,41 @@
 
     <!-- BottomNavBar (Mobile) -->
     <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 md:hidden bg-[#fff8ef]/90 dark:bg-stone-900/90 backdrop-blur-md rounded-t-[2rem] shadow-[0_-10px_40px_rgba(30,27,19,0.06)]">
-        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="index.html">
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="javascript:navigateTo('index.html')">
             <span class="material-symbols-outlined" data-icon="home">home</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Home</span>
         </a>
-        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="letter.html">
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="javascript:navigateTo('letter.html')">
             <span class="material-symbols-outlined" data-icon="mail">mail</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Letter</span>
         </a>
-        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="gallery.html">
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="javascript:navigateTo('gallery.html')">
             <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Moments</span>
         </a>
-        <a class="flex flex-col items-center justify-center bg-[#af1517] text-white rounded-full p-3 shadow-[0_0_15px_rgba(175,21,23,0.4)] transition-all duration-200" href="timeline.html">
+        <a class="flex flex-col items-center justify-center bg-[#af1517] text-white rounded-full p-3 shadow-[0_0_15px_rgba(175,21,23,0.4)] transition-all duration-200" href="javascript:navigateTo('timeline.html')">
             <span class="material-symbols-outlined" data-icon="timeline">timeline</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Timeline</span>
         </a>
-        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="surprise.html">
+        <a class="flex flex-col items-center justify-center text-[#805062] dark:text-stone-400 p-3 hover:text-[#af1517] dark:hover:text-white transition-all duration-200" href="javascript:navigateTo('surprise.html')">
             <span class="material-symbols-outlined" data-icon="redeem">redeem</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest mt-1">Surprise</span>
         </a>
     </nav>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music/romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            syncMusic();
+        });
+    </script>
 </body>
 </html>

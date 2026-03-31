@@ -117,7 +117,7 @@
             Tumhare saath guzra har pal ek blessing hai. Shukriya mera saath dene ke liye. Ye to bas shuruwat hai humare hamesha ki... ✨
         </p>
         
-        <a href="index.html" class="group relative px-12 py-5 bg-primary text-on-primary rounded-full font-label text-lg tracking-widest uppercase overflow-hidden transition-all hover:scale-110 hover:shadow-[0_0_30px_rgba(175,21,23,0.4)] active:scale-95 inline-block">
+        <a href="javascript:navigateTo('index.html')" class="group relative px-12 py-5 bg-primary text-on-primary rounded-full font-label text-lg tracking-widest uppercase overflow-hidden transition-all hover:scale-110 hover:shadow-[0_0_30px_rgba(175,21,23,0.4)] active:scale-95 inline-block">
             <span class="relative z-10 flex items-center gap-2">
                 Wapas Shuru Karein <span class="material-symbols-outlined text-sm" data-icon="home">home</span>
             </span>
@@ -125,7 +125,20 @@
         </a>
     </div>
 
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music/romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/script.js"></script>
     <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            syncMusic();
+        });
+
         const canvas = document.getElementById('heart-rain');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;

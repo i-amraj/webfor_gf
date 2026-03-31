@@ -1,56 +1,60 @@
-{
     // --- Navigation & Music Persistence ---
+    function navigateTo(url) {
+        const music = document.getElementById('bgMusic');
+        if (music) {
+            localStorage.setItem('musicTime', music.currentTime);
+            localStorage.setItem('musicPlaying', !music.paused);
+        }
+        window.location.href = url;
+    }
+
     function enterSite() {
         const music = document.getElementById('bgMusic');
         if (music) {
-            // Start slightly into the song to skip silence
+            // Start slightly into the song to skip silence if new
             if (music.currentTime < 3) music.currentTime = 3;
             
+            music.playbackRate = 0.9; // Lower pitch as requested
             music.volume = 0;
             music.play().then(() => {
                 localStorage.setItem('musicPlaying', 'true');
-                // Fade in
-                let vol = 0;
-                const fadeIn = setInterval(() => {
-                    if (vol < 0.6) {
-                        vol += 0.05;
-                        music.volume = vol;
-                    } else {
-                        clearInterval(fadeIn);
-                    }
-                }, 200);
+                // Fade in to 0.4
+                gsap.to(music, { volume: 0.4, duration: 2 });
             }).catch(e => console.warn("Music play blocked:", e));
         }
         
-        const container = document.querySelector('.landing-container');
-        if (container) container.classList.add('page-transition');
-        
         setTimeout(() => {
-            window.location.href = "letter.html";
-        }, 800);
+            navigateTo("letter.html");
+        }, 500);
     }
 
-    // Music Sync Across Pages
+    // Music Sync Across Pages (Non-Iframe version)
     function syncMusic() {
         const music = document.getElementById('bgMusic');
         if (!music) return;
 
+        // Apply requested settings
+        music.playbackRate = 0.9;
+        
         // Load state
         const savedTime = localStorage.getItem('musicTime');
         const isPlaying = localStorage.getItem('musicPlaying') === 'true';
 
         if (savedTime) music.currentTime = parseFloat(savedTime);
+        
         if (isPlaying) {
-            music.volume = 0.6; // Set comfortable volume
-            music.play().catch(e => console.warn("Auto-play blocked, waiting for interaction."));
+            music.volume = 0;
+            music.play().then(() => {
+                gsap.to(music, { volume: 0.4, duration: 2 });
+            }).catch(e => console.warn("Auto-play blocked, waiting for interaction."));
         }
 
-        // Save state periodically
+        // Save state frequently
         setInterval(() => {
             if (!music.paused) {
                 localStorage.setItem('musicTime', music.currentTime);
             }
-        }, 1000);
+        }, 500);
     }
 
     // --- Three.js 3D Heart Environment ---
@@ -170,4 +174,5 @@
 
     // Export functions
     window.enterSite = enterSite;
-}
+    window.navigateTo = navigateTo;
+    window.syncMusic = syncMusic;
