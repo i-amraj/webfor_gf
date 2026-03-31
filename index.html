@@ -35,16 +35,60 @@
             transform: scale(1.1) translateY(-5px);
             box-shadow: 0 15px 35px rgba(175, 21, 23, 0.6);
         }
+
+        /* Splash Overlay */
+        #splash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: opacity 1s ease-out, visibility 1s;
+        }
+
+        .splash-heart {
+            font-size: 5rem;
+            color: #af1517;
+            margin-bottom: 2rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 10px #af1517); }
+            50% { transform: scale(1.2); filter: drop-shadow(0 0 30px #af1517); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 10px #af1517); }
+        }
+
+        .splash-text {
+            color: #fff;
+            font-family: 'Newsreader', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
     </style>
 </head>
-<body class="bg-black font-body text-white overflow-hidden">
+    <!-- Splash Overlay to unlock audio -->
+    <div id="splash-overlay" onclick="startExperience()">
+        <div class="splash-heart">❤️</div>
+        <div class="splash-text">Hamara Safar Shuru Karein... (Click Anywhere)</div>
+    </div>
+
     <div class="landing-container h-screen w-full flex justify-center items-center relative">
         <div id="three-container" class="absolute inset-0 z-0"></div>
         
-        <div class="content relative z-10 text-center bg-black/40 backdrop-blur-xl border border-white/10 p-12 md:p-20 rounded-[2rem] shadow-2xl max-w-2xl mx-6">
+        <div class="content relative z-10 text-center bg-black/40 backdrop-blur-xl border border-white/10 p-12 md:p-20 rounded-[2rem] shadow-2xl max-w-2xl mx-6" style="opacity: 0; transform: translateY(20px);">
             <h1 class="font-headline text-6xl md:text-8xl italic text-white mb-6 glow-text">For You ❤️</h1>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; font-weight: 300; letter-spacing: 1px;">Hamari khoobsurat yaadon ko phirse jeeyein...</p>
-            <button class="btn-enter" onclick="enterSite()">Hamari Duniya Mein Chalein ✨</button>
+            <button class="btn-enter" onclick="navigateTo('letter.html')">Hamari Duniya Mein Chalein ✨</button>
         </div>
     </div>
 

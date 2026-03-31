@@ -8,24 +8,42 @@
         window.location.href = url;
     }
 
-    function enterSite() {
+    function startExperience() {
+        const splash = document.getElementById('splash-overlay');
         const music = document.getElementById('bgMusic');
+        
         if (music) {
-            // Start slightly into the song to skip silence if new
+            // Apply requested settings
+            music.playbackRate = 0.9;
+            music.volume = 0;
             if (music.currentTime < 3) music.currentTime = 3;
             
-            music.playbackRate = 0.9; // Lower pitch as requested
-            music.volume = 0;
             music.play().then(() => {
                 localStorage.setItem('musicPlaying', 'true');
-                // Fade in to 0.4
-                gsap.to(music, { volume: 0.4, duration: 2 });
-            }).catch(e => console.warn("Music play blocked:", e));
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(music, { volume: 0.4, duration: 2 });
+                } else {
+                    music.volume = 0.4;
+                }
+            }).catch(e => console.warn("Playback failed:", e));
         }
-        
-        setTimeout(() => {
-            navigateTo("letter.html");
-        }, 500);
+
+        if (splash) {
+            splash.style.opacity = '0';
+            setTimeout(() => {
+                splash.style.visibility = 'hidden';
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(".content", { opacity: 1, y: 0, duration: 1.5, ease: "power3.out" });
+                } else {
+                    document.querySelector('.content').style.opacity = '1';
+                }
+            }, 1000);
+        }
+    }
+
+    function enterSite() {
+        // Redundant with splash but kept for safety/flow
+        navigateTo("letter.html");
     }
 
     // Music Sync Across Pages (Non-Iframe version)
@@ -173,6 +191,7 @@
     });
 
     // Export functions
+    window.startExperience = startExperience;
     window.enterSite = enterSite;
     window.navigateTo = navigateTo;
     window.syncMusic = syncMusic;
