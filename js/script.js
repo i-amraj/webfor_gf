@@ -3,8 +3,22 @@
     function enterSite() {
         const music = document.getElementById('bgMusic');
         if (music) {
+            // Start slightly into the song to skip silence
+            if (music.currentTime < 3) music.currentTime = 3;
+            
+            music.volume = 0;
             music.play().then(() => {
                 localStorage.setItem('musicPlaying', 'true');
+                // Fade in
+                let vol = 0;
+                const fadeIn = setInterval(() => {
+                    if (vol < 0.6) {
+                        vol += 0.05;
+                        music.volume = vol;
+                    } else {
+                        clearInterval(fadeIn);
+                    }
+                }, 200);
             }).catch(e => console.warn("Music play blocked:", e));
         }
         
@@ -27,6 +41,7 @@
 
         if (savedTime) music.currentTime = parseFloat(savedTime);
         if (isPlaying) {
+            music.volume = 0.6; // Set comfortable volume
             music.play().catch(e => console.warn("Auto-play blocked, waiting for interaction."));
         }
 
